@@ -12,7 +12,7 @@ import { BrowserRouter as Router, Switch, Route, Link, useHistory } from "react-
 
 import CreateUser from "./components/create-user.component";
 import EditUser from "./components/edit-user.component";
-import userList from "./components/user-list.component";
+import Home from "./components/Home";
 import signIn from "./components/sign-in.component";
 import { signOutSuccessAction } from "./redux/actions/userAction";
 
@@ -36,7 +36,7 @@ class App extends Component {
 
               <Navbar.Brand>
                 <Link to={"/sign-in"} className="nav-link">
-                  User Information App
+                  Stock Market App
                 </Link>
               </Navbar.Brand>
 
@@ -66,8 +66,8 @@ class App extends Component {
                 {
                   this.props.isSignedIn &&
                   <Nav>
-                    <Link to={"/user-list"} className="nav-link">
-                      User List
+                    <Link to={"/Home"} className="nav-link">
+                      Home
                     </Link>
                   </Nav>
                 }
@@ -90,10 +90,10 @@ class App extends Component {
             <Col md={12}>
               <div className="wrapper">
                 <Switch>
-                  <Route exact path='/' component={userList} />
+                  <Route exact path='/' component={Home} />
                   <Route path="/create-user" component={CreateUser} />
                   <Route path="/edit-user/:id" component={EditUser} />
-                  <Route path="/user-list" component={userList} />
+                  <Route path="/Home" component={Home} />
                   <Route path="/sign-in" component={signIn} />
                   <Route path="/sign-out" component={signIn} />
                 </Switch>
