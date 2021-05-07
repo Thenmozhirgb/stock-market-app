@@ -1,7 +1,7 @@
 export const CREATE_USER = 'CREATE_USER';
-export const GET_USER_LIST ='GET_USER_LIST';
-export const GET_USER_LIST_SUCCESS ='GET_USER_LIST_SUCCESS';
-export const GET_USER_LIST_ERROR = 'GET_USER_LIST_ERROR';
+export const GET_HOME ='GET_HOME';
+export const GET_HOME_SUCCESS ='GET_HOME_SUCCESS';
+export const GET_HOME_ERROR = 'GET_HOME_ERROR';
 export const SIGN_IN_SUCESS ='SIGN_IN_SUCESS';
 export const SIGN_OUT_SUCESS = 'SIGN_OUT_SUCESS';
 export const SIGN_IN_VERIFICATION = 'SIGN_IN_VERIFICATION';
@@ -11,16 +11,16 @@ export const createUser = (params) => {
     return {type: CREATE_USER, payload: params}
 }
 
-export const getUserList =(params) => {
-    return {type: GET_USER_LIST, payload: params}
+export const getHome =(params) => {
+    return {type: GET_HOME, payload: params}
 }
 
-export const getUserListSuccess = (params) => {
-    return {type: GET_USER_LIST_SUCCESS, response: params}
+export const getHomeSuccess = (params) => {
+    return {type: GET_HOME_SUCCESS, response: params}
 }
 
-export const getUserListError = (params) => {
-    return {type: GET_USER_LIST_ERROR, error: params}
+export const getHomeError = (params) => {
+    return {type: GET_HOME_ERROR, error: params}
 }
 export const signInVerification =(params) => {
     return{type: SIGN_IN_VERIFICATION, request: params}
