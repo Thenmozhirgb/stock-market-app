@@ -3,7 +3,7 @@ import * as userSaga from "./userSaga";
 
 function* RootSaga() {
     yield all ([
-        fork(userSaga.watchGetUserList),
+        fork(userSaga.watchGetHome),
     ]);
     yield all([
         fork(userSaga.watchGetSignIn),
