@@ -1,12 +1,12 @@
-import { CREATE_USER, GET_USER_LIST_SUCCESS, GET_USER_LIST_ERROR, SIGN_IN_SUCESS, SIGN_OUT_SUCESS, SIGN_IN_FAILURE } from "../actions/userAction";
+import { CREATE_USER, GET_HOME_SUCCESS, GET_HOME_ERROR, SIGN_IN_SUCESS, SIGN_OUT_SUCESS, SIGN_IN_FAILURE } from "../actions/userAction";
 
 const initialState = {
     id: '',
-    name: '',
-    email: '',
-    userid: '',
-    password: '',
-    userList: [],
+    companyname: '',
+    stocksymbol: '',
+    marketcap: '',
+    currentprice: '',
+    home: [],
     isSignedIn: false,
     signedInUser: {},
     message: ''
@@ -17,20 +17,20 @@ export default function reducer(state = initialState, action) {
         case CREATE_USER:
             return {
                 id: action.payload._id,
-                name: action.payload.name,
-                email: action.payload.email,
-                userid: action.payload.userid,
-                password: action.payload.password
+                name: action.payload.companyname,
+                email: action.payload.stocksymbol,
+                userid: action.payload.marketcap,
+                password: action.payload.currentprice
             }
-        case GET_USER_LIST_SUCCESS:
+        case GET_HOME_SUCCESS:
             return {
                 ...state,
-                userList: action.response
+                home: action.response
             }
-        case GET_USER_LIST_ERROR:
+        case GET_HOME_ERROR:
             return {
                 ...state,
-                userList: action.error
+                home: action.error
             }
         case SIGN_IN_SUCESS:
             return {
