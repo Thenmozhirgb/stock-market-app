@@ -1,31 +1,31 @@
 import { takeLatest, call, put } from "redux-saga/effects";
-import { GET_USER_LIST, GET_USER_LIST_SUCCESS, GET_USER_LIST_ERROR, SIGN_IN_SUCESS, SIGN_IN_VERIFICATION, SIGN_IN_FAILURE } from "./../actions/userAction";
+import { GET_HOME, GET_HOME_SUCCESS, GET_HOME_ERROR, SIGN_IN_SUCESS, SIGN_IN_VERIFICATION, SIGN_IN_FAILURE } from "./../actions/userAction";
 import { get } from '../../services/api';
 
 
-export function* fetchGetUserList() {
+export function* fetchGetHome() {
 
     try {
         let responseData = yield call(get, 'http://localhost:4000/Users/signIn');
 
         yield put({
-            type: GET_USER_LIST_SUCCESS,
+            type: GET_HOME_SUCCESS,
             response: responseData
         })
 
     } catch (error) {
         yield put({
-            type: GET_USER_LIST_ERROR,
+            type: GET_HOME_ERROR,
             error: error
         })
     }
 }
 
-export function* watchGetUserList() {
-    yield takeLatest(GET_USER_LIST, callGetUserList);
+export function* watchGetHome() {
+    yield takeLatest(GET_HOME, callGetHome);
 }
-export function* callGetUserList(action) {
-    yield call(fetchGetUserList, action.request); //yield call is a function which calls function mentioned
+export function* callGetHome(action) {
+    yield call(fetchGetHome, action.request); //yield call is a function which calls function mentioned
 }
 
 export function* fetchSignIn(request) {
