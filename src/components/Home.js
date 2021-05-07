@@ -3,22 +3,22 @@ import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import UserTableRow from './UserTableRow';
 import { connect } from "react-redux";
-import { getUserList } from "../redux/actions/userAction";
+import { getHome } from "../redux/actions/userAction";
 
 
- class UserList extends Component {
+ class Home extends Component {
 
   constructor(props) {
     super(props)
   }
 
   componentDidMount() {
-    this.props.getUserList();
+    this.props.getHome();
       
   }
 
   DataTable() {
-    return this.props.userList ? this.props.userList.map((res, i) => {
+    return this.props.home ? this.props.home.map((res, i) => {
       return <UserTableRow obj={res} key={i} />;
     }): '';
   }
@@ -44,10 +44,10 @@ import { getUserList } from "../redux/actions/userAction";
 }
 
 const mapStateToProps = state =>{
-  return {userList : state.userReducer.userList};
+  return {home : state.userReducer.home};
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  getUserList: (params) => dispatch(getUserList(params))
+  getHome: (params) => dispatch(getHome(params))
 })
-export default connect(mapStateToProps, mapDispatchToProps)(UserList);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
